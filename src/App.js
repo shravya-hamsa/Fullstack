@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState,useEffect} from 'react';
 
 function App() {
-  return (
+  /*return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,6 +20,38 @@ function App() {
         </a>
       </header>
     </div>
+  );*/
+  const [userInput, setSomething] = useState({
+    name:"",
+    usn:"",
+    university:"",
+    gender:"",
+    phoneNumber:""
+  });
+  const [shouldIShowValue, setShouldIShowValue]=useState(false);
+  
+  
+  
+  const handleNameChange=(event)=>{
+    const newObject={
+      name:event.target.value,
+      usn:userInput.usn,
+      university:userInput.university,
+      gender:userInput.gender,
+      phoneNumber:userInput.phoneNumber
+    }
+  setSomething(newObject)
+  }
+  const handleDataVisibility=()=>{
+    setShouldIShow(true)
+  }
+   
+  return(
+    <div className="App">
+    <input placeholder='Name' onChange={handleNameChange} value={userInput.name}/>
+    <button onClick={handleDataVisibility }></button>
+    </div>
+
   );
 }
 
